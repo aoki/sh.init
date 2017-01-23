@@ -1,0 +1,3 @@
+#!/bin/bash -eu
+
+printf "Hello Awesome Shell Scripts!!\n"
