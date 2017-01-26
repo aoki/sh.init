@@ -1,5 +1,7 @@
 NAME		:= hello
-VERSION	:= v0.1.0
+VERSION	:= 0.1.0
+OWNER		:= ringohub
+REPOSITORY	:= sh.init
 
 .DEFAULT_GOAL := exec
 
@@ -9,5 +11,10 @@ exec:
 
 .PHONY: publish
 publish:
-	git tag $(VERSION)
-	tar czf bin/$(NAME) dist/$(NAME)-$(VERSION).tar.gz
+	git tag v$(VERSION)
+	@mkdir -p dist
+	tar cvzf dist/$(NAME)-$(VERSION).tar.gz bin/$(NAME)
+
+.PHONY: clean
+clean:
+	rm dist/*
